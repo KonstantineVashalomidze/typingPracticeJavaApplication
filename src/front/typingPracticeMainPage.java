@@ -60,7 +60,7 @@ public class typingPracticeMainPage extends JFrame implements ActionListener {
         // set background color
         this.screen.setBackground(Color.LIGHT_GRAY);
         // set font of the text and size
-        this.screen.setFont(new Font("Arial", Font.PLAIN, 20));
+        this.screen.setFont(new Font("Tahoma", Font.PLAIN, 20));
         // set brder and border colorfor text
         this.screen.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // set custom made caret here
@@ -88,7 +88,7 @@ public class typingPracticeMainPage extends JFrame implements ActionListener {
         // set background color
         this.userInput.setBackground(Color.LIGHT_GRAY);
         // set font of the text and size
-        this.userInput.setFont(new Font("Arial", Font.PLAIN, 20));
+        this.userInput.setFont(new Font("Tahoma", Font.PLAIN, 20));
         // set border and border color for text
         this.userInput.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         // focus on this user input immediately after the frame is loaded
