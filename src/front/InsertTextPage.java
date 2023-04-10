@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class InsertTextPage extends JFrame implements ActionListener {
 
-    public static int countHowManyTextsAreInFile = 15;
+    public static int countHowManyTextsAreInFile = countLines();
 
     private JTextArea textInputToAddList = new JTextArea();
 
@@ -83,7 +83,7 @@ public class InsertTextPage extends JFrame implements ActionListener {
     private void readFromFile(){
         int tempCounter = 0;
         try {
-            File myObj = new File(this.filename);
+            File myObj = new File(filename);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -101,7 +101,7 @@ public class InsertTextPage extends JFrame implements ActionListener {
         countHowManyTextsAreInFile--;
         try {
             // Create a temporary file
-            File inputFile = new File(this.filename);
+            File inputFile = new File(filename);
             File tempFile = new File("temp.txt");
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -135,13 +135,25 @@ public class InsertTextPage extends JFrame implements ActionListener {
     private void appendLine(String line) {
         countHowManyTextsAreInFile++;
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
             writer.write(line);
             writer.newLine();
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static int countLines(){
+        int tempCount = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            while (br.readLine() != null) {
+                tempCount++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tempCount;
     }
 
 
