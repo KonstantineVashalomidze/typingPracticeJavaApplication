@@ -13,7 +13,7 @@ public class InsertTextPage extends JFrame implements ActionListener {
 
     private JTextArea textInputToAddList = new JTextArea();
 
-    public static final String filename = "C:\\Users\\99557\\IdeaProjects\\typingPractice\\src\\front\\textlist.txt";
+    public static final String filename = "src/textlist.txt";
     private JPanel panelForDeleting = new JPanel(new FlowLayout());
 
     private JPanel panelForInserting = new JPanel(new FlowLayout());
